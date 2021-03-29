@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>preferences</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<style>
+		body 		{ padding-top:80px; }
+	</style>
+</head>
+<body>
+	<nav class="nav nav-pills nav-justified navbar-fixed-top">
+		<ul class="nav navbar-nav" style="padding-top:15px">
+
+    	<div class="navbar-nav">
+				<div class="container" style="text-align: right">
+      	<a class="btn btn btn-primary active"> ADD <span class="sr-only">(current)</span></a>
+      	<a class="btn btn-default" href="/remove_preferences"> REMOVE </a>
+      	<a class="btn btn-default" href="/releases"> New Releases </a>
+				<a class="btn btn-default" href="/logout"> Logout </a>
+			</div>
+  		</div>
+
+		</ul>
+	</nav>
+
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+	<h1><i class="fa fa-plus-circle" aria-hidden="true"></i> preferences</h1>
+
+
+	<!-- show any messages that come back with authentication -->
+	<% if (message.length > 0) { %>
+		<div class="alert alert-danger"><%= message %></div>
+	<% } %>
+
+
+	<!-- ADD FORM FIELD -->
+	<form action="/preferences" method="post">
+		<div class="form-group">
+
+			<input autofocus="autofocus" type="text" class="form-control" placeholder="ADD Artist"  name="add_pref_artist">
+		</div>
+
+		<button type="submit" class="btn btn-warning btn-lg">ADD</button>
+	</form>
+		<br/>
+
+		<div class="alert alert-success">
+<!--			<h4 class="alert-heading">Your Prefferences</h4>   -->
+			<%- titles %>
+
+		</div>
+	<!--		<div class="alert alert-success"><%- titles %></div> -->
+
+	<hr>
+
+</div>
+
+</div>
+</body>
+</html>
